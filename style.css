@@ -546,6 +546,378 @@ footer p {
 
 }
 
+/* ========================================
+   PAGE COLLECTIONS
+======================================== */
+
+/* BANNIERE */
+
+.collection-hero {
+    min-height: 380px;
+    padding: 80px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(15, 18, 16, 0.85),
+            rgba(15, 18, 16, 0.92)
+        ),
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1800")
+        center / cover no-repeat;
+}
+
+.collection-hero-content {
+    max-width: 750px;
+}
+
+.collection-hero h1 {
+    color: var(--cream);
+    font-size: clamp(40px, 6vw, 65px);
+    margin-bottom: 20px;
+}
+
+.collection-hero p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+
+/* CATEGORIES */
+
+.collection-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.collection-category {
+    padding: 30px 20px;
+
+    background: var(--dark-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+}
+
+.collection-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    background: #303730;
+}
+
+.collection-icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.collection-category h3 {
+    color: var(--cream);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.collection-category p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.collection-category span {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* CATALOGUE */
+
+.collection-catalogue {
+    background: var(--dark-light);
+}
+
+.collection-group {
+    margin-top: 65px;
+    scroll-margin-top: 100px;
+}
+
+.collection-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+}
+
+.collection-title h2 {
+    color: var(--cream);
+    font-size: 21px;
+}
+
+.collection-title span {
+    color: var(--gold);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.collection-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* CARTES PRODUITS */
+
+.collection-product {
+    background: var(--dark-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+
+    transition: var(--transition);
+}
+
+.collection-product:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* VISUELS DES FIGURINES */
+
+.collection-product-image {
+    height: 240px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 85px;
+    position: relative;
+
+    background: linear-gradient(
+        145deg,
+        #424A3E,
+        #1A201D
+    );
+}
+
+.collection-product-image.dragon {
+    background: linear-gradient(145deg, #514031, #25201C);
+}
+
+.collection-product-image.griffon {
+    background: linear-gradient(145deg, #454B3E, #20251F);
+}
+
+.collection-product-image.demon {
+    background: linear-gradient(145deg, #523333, #241B1B);
+}
+
+.collection-product-image.knight {
+    background: linear-gradient(145deg, #41474D, #1D2226);
+}
+
+.collection-product-image.warrior {
+    background: linear-gradient(145deg, #514336, #252019);
+}
+
+.collection-product-image.archer {
+    background: linear-gradient(145deg, #394C3D, #1D271F);
+}
+
+.collection-product-image.wizard {
+    background: linear-gradient(145deg, #3C405B, #1B1E30);
+}
+
+.collection-product-image.witch {
+    background: linear-gradient(145deg, #49364F, #241D2A);
+}
+
+.collection-product-image.druid {
+    background: linear-gradient(145deg, #3F5038, #20291D);
+}
+
+.collection-product-image.skeleton {
+    background: linear-gradient(145deg, #4A4842, #242320);
+}
+
+.collection-product-image.vampire {
+    background: linear-gradient(145deg, #542F35, #271A20);
+}
+
+.collection-product-image.orc {
+    background: linear-gradient(145deg, #46503A, #20251D);
+}
+
+
+/* BADGES PRODUITS */
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    background: var(--gold);
+    color: var(--dark);
+
+    padding: 6px 10px;
+
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    border-radius: 3px;
+}
+
+
+/* INFORMATIONS PRODUITS */
+
+.collection-product-info {
+    padding: 22px;
+}
+
+.product-category {
+    color: var(--gold);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.collection-product-info h3 {
+    color: var(--cream);
+    font-size: 17px;
+    margin: 8px 0;
+}
+
+.collection-product-info p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    min-height: 42px;
+}
+
+.collection-product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    margin-top: 15px;
+}
+
+.collection-product-bottom strong {
+    color: var(--gold);
+    font-size: 17px;
+}
+
+.product-link {
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.product-link:hover {
+    color: var(--gold);
+}
+
+
+/* BANNIERE FINALE */
+
+.collection-banner {
+    padding: 80px 25px;
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        #30382F,
+        #171918
+    );
+
+    border-top: 1px solid var(--border);
+}
+
+.collection-banner h2 {
+    color: var(--cream);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.collection-banner p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+
+/* RESPONSIVE TABLETTES */
+
+@media screen and (max-width: 900px) {
+
+    .collection-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collection-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* RESPONSIVE MOBILES */
+
+@media screen and (max-width: 600px) {
+
+    .collection-hero {
+        min-height: 350px;
+        padding: 60px 20px;
+    }
+
+    .collection-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-products {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .collection-title h2 {
+        font-size: 18px;
+    }
+
+    .collection-product-image {
+        height: 260px;
+    }
+
+    .collection-banner h2 {
+        font-size: 25px;
+    }
+
+}
+
 
 /* ========================================
    13. ACCESSIBILITE
