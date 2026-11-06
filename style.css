@@ -1,3 +1,905 @@
-p{
-    color: purple;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* =========================================
+   1. VARIABLES ET BASE
+========================================= */
+
+:root {
+    --dark: #171918;
+    --dark-light: #202421;
+    --dark-card: #292E2A;
+
+    --gold: #C6A66B;
+    --gold-light: #E1C58D;
+
+    --cream: #F2EBDD;
+    --muted: #AAA99F;
+    --border: #3D423B;
+
+    --font-title: 'Cinzel', serif;
+    --font-text: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--cream);
+    font-family: var(--font-text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1150px, 90%);
+    margin: 0 auto;
+}
+
+section {
+    padding: 90px 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-title);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.section-title {
+    color: var(--gold);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
+
+/* =========================================
+   2. HEADER ET NAVIGATION
+========================================= */
+
+header {
+    min-height: 85px;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background-color: rgba(23, 25, 24, 0.97);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-title);
+    color: var(--gold);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--cream);
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--gold);
+}
+
+/* =========================================
+   3. BOUTONS
+========================================= */
+
+.btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid var(--gold);
+    color: var(--dark);
+    background-color: var(--gold);
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+.btn-outline:hover {
+    background-color: var(--gold);
+    color: var(--dark);
+}
+
+/* =========================================
+   4. PAGE ACCUEIL : HERO
+========================================= */
+
+.hero {
+    min-height: 620px;
+    padding: 100px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(15, 18, 16, 0.75), rgba(15, 18, 16, 0.95)),
+        url('images/hero.jpg') center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    color: var(--gold-light);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 25px;
+}
+
+.hero p {
+    color: var(--cream);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: 0 auto 35px;
+}
+
+/* =========================================
+   5. PAGE ACCUEIL : CATEGORIES
+========================================= */
+
+.categories {
+    background-color: var(--dark-light);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.category-card {
+    min-height: 220px;
+    padding: 30px;
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.category-card h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.category-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   6. PAGE ACCUEIL : BOUTIQUE / PRODUITS
+========================================= */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.product-card {
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.product-image {
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #343B34, #202421);
+    font-size: 4rem;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    color: var(--cream);
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.product-price {
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* =========================================
+   7. PAGE ACCUEIL : A PROPOS
+========================================= */
+
+.about {
+    background-color: var(--dark-light);
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   8. PAGE ACCUEIL : AVANTAGES
+========================================= */
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.advantage-card {
+    padding: 30px;
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.advantage-card h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.advantage-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   9. PAGE COLLECTIONS : HERO
+========================================= */
+
+.collection-hero {
+    padding: 90px 5%;
+    text-align: center;
+    background:
+        linear-gradient(rgba(15, 18, 16, 0.8), rgba(15, 18, 16, 0.95)),
+        url('images/collections.jpg') center/cover no-repeat;
+}
+
+.collection-hero h1 {
+    color: var(--gold-light);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+}
+
+.collection-hero p {
+    max-width: 700px;
+    margin: auto;
+    color: var(--muted);
+}
+
+/* =========================================
+   10. PAGE COLLECTIONS : NAVIGATION CATEGORIES
+========================================= */
+
+.collection-categories {
+    padding: 30px 5%;
+    background-color: var(--dark-light);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.collection-category {
+    padding: 10px 20px;
+    color: var(--cream);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.collection-category:hover {
+    color: var(--dark);
+    background-color: var(--gold);
+    border-color: var(--gold);
+}
+
+/* =========================================
+   11. PAGE COLLECTIONS : CATALOGUE
+========================================= */
+
+.collection-catalogue {
+    padding: 60px 5%;
+}
+
+.collection-group {
+    max-width: 1150px;
+    margin: 0 auto 80px;
+    scroll-margin-top: 110px;
+}
+
+.collection-title {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.collection-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.collection-product {
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.collection-product:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.collection-product-image {
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    background: linear-gradient(145deg, #343B34, #202421);
+}
+
+/* Variantes visuelles des figurines */
+
+.collection-product-image.dragon {
+    background: linear-gradient(145deg, #45302C, #202421);
+}
+
+.collection-product-image.griffon {
+    background: linear-gradient(145deg, #48412F, #202421);
+}
+
+.collection-product-image.demon {
+    background: linear-gradient(145deg, #492D2D, #202421);
+}
+
+.collection-product-image.knight {
+    background: linear-gradient(145deg, #343D45, #202421);
+}
+
+.collection-product-image.warrior {
+    background: linear-gradient(145deg, #44352B, #202421);
+}
+
+.collection-product-image.archer {
+    background: linear-gradient(145deg, #354638, #202421);
+}
+
+.collection-product-image.wizard {
+    background: linear-gradient(145deg, #37334D, #202421);
+}
+
+.collection-product-image.witch {
+    background: linear-gradient(145deg, #44324A, #202421);
+}
+
+.collection-product-image.druid {
+    background: linear-gradient(145deg, #354A37, #202421);
+}
+
+.collection-product-image.skeleton {
+    background: linear-gradient(145deg, #45443D, #202421);
+}
+
+.collection-product-image.vampire {
+    background: linear-gradient(145deg, #492B32, #202421);
+}
+
+.collection-product-image.orc {
+    background: linear-gradient(145deg, #3D4930, #202421);
+}
+
+.product-tag {
+    display: inline-block;
+    margin: 18px 20px 0;
+    padding: 4px 10px;
+    color: var(--gold-light);
+    background-color: rgba(198, 166, 107, 0.12);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.collection-product-info {
+    padding: 15px 20px 20px;
+}
+
+.collection-product-info h3 {
+    color: var(--cream);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.collection-product-info p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.collection-product-bottom {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.collection-product-bottom strong {
+    color: var(--gold);
+    font-size: 1.05rem;
+}
+
+.product-link {
+    color: var(--gold);
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--gold);
+    transition: color 0.3s ease;
+}
+
+.product-link:hover {
+    color: var(--gold-light);
+}
+
+/* =========================================
+   12. PAGE COLLECTIONS : BANNIERE FINALE
+========================================= */
+
+.collection-banner {
+    padding: 65px 5%;
+    background-color: var(--dark-light);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.collection-banner h2 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.collection-banner p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   13. FOOTER
+========================================= */
+
+footer {
+    padding: 45px 5%;
+    background-color: #111311;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: var(--gold);
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--gold-light);
+}
+
+/* =========================================
+   14. RESPONSIVE : TABLETTES
+========================================= */
+
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collection-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid,
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================
+   15. RESPONSIVE : MOBILES
+========================================= */
+
+@media (max-width: 600px) {
+    section {
+        padding: 60px 0;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 18px 5%;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    nav a {
+        font-size: 0.78rem;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 70px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .category-grid,
+    .products-grid,
+    .advantages-grid,
+    .collection-products {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-hero {
+        padding: 65px 5%;
+    }
+
+    .collection-title {
+        font-size: 1.6rem;
+    }
+
+    .collection-product-image {
+        height: 220px;
+    }
+
+    .collection-categories {
+        gap: 10px;
+    }
+
+    .collection-category {
+        font-size: 0.8rem;
+        padding: 8px 13px;
+    }
+
+    .collection-product-bottom {
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================
+   16. ACCESSIBILITE
+========================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   DRAGON'S FORGE — ACCUEIL HARMONISÉ
+   Même identité visuelle que Collections
+========================================= */
+
+/* HERO */
+
+.hero {
+    min-height: 480px;
+    padding: 90px 5%;
+    background:
+        linear-gradient(rgba(15, 18, 16, 0.82), rgba(15, 18, 16, 0.95)),
+        url('images/collections.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    color: var(--gold-light);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+/* CATEGORIES */
+
+.categories {
+    background-color: var(--dark);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.category-card {
+    min-height: 220px;
+    padding: 30px;
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.category-card h3 {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.category-card p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* BOUTIQUE */
+
+#boutique {
+    background-color: var(--dark-light);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.product-image {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #343B34, #202421);
+    font-size: 5rem;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    color: var(--cream);
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.product-price {
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* A PROPOS */
+
+.about {
+    background-color: var(--dark);
+}
+
+.about-content {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* AVANTAGES */
+
+.advantages {
+    background-color: var(--dark-light);
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.advantage-card {
+    padding: 30px;
+    background-color: var(--dark-card);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.advantage-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.advantage-card h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.advantage-card p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* TITRES DES SECTIONS */
+
+.section-title {
+    color: var(--gold);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 45px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid,
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 400px;
+        padding: 65px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .products-grid,
+    .category-grid,
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
 }
